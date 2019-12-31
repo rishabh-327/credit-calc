@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body {
+    font-family: Lato;
+    background: #202020;
+    min-height: 100vh;
+}
+nav {
+    text-align: center;
+    padding: 1rem;
+}
+nav img {
+    height: 48px;
+    width: auto;
+}
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+hr.header-hr {
+    width: 25%;
+    border-top: 2px solid #fff;
+    margin:  auto;
+}
+.title-line {
+    font-size: 1.5rem;
+}
+.budget-amount {
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 5px;
+}
+.budget-amount::before {
+    content: '+';
+    font-style: italic;
+}
+.ie-wrapper {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.income-box, .expend-box {
+    height: 150px;
+    width: 280px;
+    border-radius: 5px;
+    padding: 3px;
+}
+.inner-box {
+    background: #202020;
+    height: 100%;
+    padding: 8px;
+    position: relative;
+}
+.income-box {
+    background: linear-gradient(to right, #59E79A, #2EE53D);
+}
+.expend-box {
+    background: linear-gradient(to right, #FE3E46, #F91A56);
+}
+.income-total, .expense-total {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+.expense-percentage-tag {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(120, 94, 94, 0.351);
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: rgb(255, 42, 74);
+}
+.income-total::before {
+    content: '+';
+}
+.expense-total::before {
+    content: '-';
+}
+.handler-container {
+    background: #2A2A2A;
+    padding: 2rem;
+    margin: 3rem auto 5rem;
+}
+.selector-wrapper {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 120px;
+    position: relative;
+    margin: 0 auto;
+}
+.income-selector, .expense-selector {
+    padding: 8px;
+    text-align: center;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    border-left: 2px solid #717171;
+    border-right: 2px solid #717171;
+    cursor: pointer;
+}
+.income-selector {
+    border-top: 2px solid #717171;
+}.expense-selector {
+    border-bottom: 2px solid #717171;
+}
+.active-selector {
+    border: none!important;
+}
+.selector-background {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left:0;
+    top: 0;
+    background: linear-gradient(to right, #FE3E46, #F91A56);
+    z-index: 0;
+    transition: all .2s ease-out;
+}
+.selector-wrapper:hover .selector-background {
+    top: 50%;
+    background: linear-gradient(to right, #59E79A, #2EE53D);
+}
+.hr-vertical {
+    width: 2px;
+    min-height: 50px;
+    height: 100%;
+    background: rgb(136, 136, 136);
+    margin: 0 auto;
+}
+
+.expense-text {
+    background: -webkit-linear-gradient(90deg, #FE3E46, #F91A56);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.income-text {
+    background: -webkit-linear-gradient(90deg, #59E79A, #2EE53D);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+input[type="text"]:focus {
+    outline: none;
+    border-bottom: 2px solid white;
+}
+input[type="text"] {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    border-bottom: 2px solid rgb(87, 87, 87);
+    padding: 8px;
+    padding-bottom: 4px;
+    letter-spacing: 2px;
+    min-width: 0;
+}
+.description-input {
+    width: 90%;
+}
+.cc-color-faded {
+    color: rgb(179, 179, 179);
+}
+.cc-list-item:hover {
+    background: rgba(255, 255, 255, 0.027);
+}
+.cc-list-item {
+    padding: 10px;
+    border-bottom: 1px solid rgb(148, 148, 148);
+}
+.cc-cross-icon {
+width: 0;
+overflow: hidden;
+transition: all .15s ease-in;
+cursor: pointer;
+}
+.cc-list-item:hover .row .cc-cross-icon {
+ width: 24px;
+}
+.cc-list-item-desc {
+    font-size: 1.2rem;
+    margin: 0;
+}
+.cc-list-item-amt {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0;
+}
+.cc-percent-expense {
+    display: inline-block;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+    color: rgb(255, 148, 148);
+    font-size: .9rem;
+    margin: 0 4px;
+}
+.cc-footer {
+    background: #2A2A2A;
+    padding: 2rem;
+}
+.get-the-code {
+    color: grey;
+}
+
+@media screen and (max-width: 576px) {
+    nav img {
+        height: 32px;
+    }
+    hr.header-hr {
+        width: 50%;
+    }
+    .budget-amount {
+        font-size: 2.75rem;
+    }
+    .income-box, .expend-box {
+        height: 100px;
+        width: 540px;
+    }
+    .inner-box h5 {
+        font-size: .9rem;
+        margin-bottom: 2px;
+    }
+    .ie-wrapper {
+        padding: 0;
+    }
+    .income-total, .expense-total {
+        font-weight: 700;
+        font-size: 1.75rem;
+    }
+    .expense-percentage-tag {
+        padding: 1px 8px;
+        font-size: .8rem;
+    }
+    .handler-container {
+        padding: 1rem;
+    }
+    .selector-wrapper {
+        overflow: hidden;
+        width: auto;
+    }
+    .selector-background {
+        width: 50%;
+        height: 100%;
+        left:0;
+        top: 0;
+        background: linear-gradient(to right, #FE3E46, #F91A56);
+        z-index: 0;
+        transition: all .2s ease-out;
+    }
+    .income-selector, .expense-selector {
+        border: none;
+        padding: 4px;
+        border-top: 2px solid #717171;
+        border-bottom: 2px solid #717171;
+    }
+    .income-selector {
+        border-left: 2px solid #717171;
+    }.expense-selector {
+        border-right: 2px solid #717171;
+    }
+    .selector-wrapper:hover .selector-background {
+        top:0;
+        left: 50%;
+        background: linear-gradient(to right, #59E79A, #2EE53D);
+    }
+    .description-input {
+        margin: 16px auto;
+        text-align: center;
+    }
+    input[type=text].amount-input {
+        width: 100%;
+        text-align: center;
+        font-weight: 900;
+        font-size: 1.5rem;
+        letter-spacing: 5px;
+    }
+    input[type=text].amount-input::placeholder {
+        letter-spacing: 0;
+        font-weight: 500;
+    }
+    .cc-nav div {
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+    .cc-nav div span {
+        display: inline-block;
+        vertical-align: bottom;
+        line-height: normal;
+    }
+    .cc-nav .active {
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    .row.cc-details-container {
+        width: calc(200vw);
+        transition: all .4s ease-in;
+    }
+}
