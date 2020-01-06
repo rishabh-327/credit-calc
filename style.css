@@ -34,10 +34,10 @@ hr.header-hr {
     font-size: 4rem;
     letter-spacing: 5px;
 }
-.budget-amount::before {
+/* .budget-amount::before {
     content: '+';
     font-style: italic;
-}
+} */
 .ie-wrapper {
     padding: 1rem;
     display: flex;
@@ -70,18 +70,12 @@ hr.header-hr {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(120, 94, 94, 0.351);
     display: inline-block;
     padding: 2px 12px;
-    border-radius: 5px;
     font-size: 1.1rem;
-    color: rgb(255, 42, 74);
-}
-.income-total::before {
-    content: '+';
-}
-.expense-total::before {
-    content: '-';
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+    color: rgb(255, 148, 148);
 }
 .handler-container {
     background: #2A2A2A;
@@ -95,37 +89,31 @@ hr.header-hr {
     position: relative;
     margin: 0 auto;
 }
-.income-selector, .expense-selector {
+.type-selector {
     padding: 8px;
     text-align: center;
-    background: transparent;
     position: relative;
     z-index: 1;
     border-left: 2px solid #717171;
     border-right: 2px solid #717171;
+}
+.type-selector p {
     cursor: pointer;
 }
 .income-selector {
     border-top: 2px solid #717171;
-}.expense-selector {
+}
+.expense-selector {
     border-bottom: 2px solid #717171;
 }
 .active-selector {
     border: none!important;
 }
-.selector-background {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    left:0;
-    top: 0;
-    background: linear-gradient(to right, #FE3E46, #F91A56);
-    z-index: 0;
-    transition: all .2s ease-out;
+.income-selector.active-selector {
+    background: linear-gradient(to right,#59E79A, #2EE53D );
 }
-.selector-wrapper:hover .selector-background {
-    top: 50%;
-    background: linear-gradient(to right, #59E79A, #2EE53D);
+.expense-selector.active-selector {
+    background: linear-gradient(to right, #FE3E46, #F91A56);
 }
 .hr-vertical {
     width: 2px;
@@ -134,24 +122,19 @@ hr.header-hr {
     background: rgb(136, 136, 136);
     margin: 0 auto;
 }
-
-.expense-text {
-    background: -webkit-linear-gradient(90deg, #FE3E46, #F91A56);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.income-text {
+.add-btn {
     background: -webkit-linear-gradient(90deg, #59E79A, #2EE53D);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-input[type="text"]:focus {
-    outline: none;
-    border-bottom: 2px solid white;
+.add-btn.red {
+    background: -webkit-linear-gradient(90deg, #FE3E46, #F91A56);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-input[type="text"] {
+input[type="text"], input[type="number"] {
     background: none;
     border: none;
     font-size: 1.25rem;
@@ -161,8 +144,27 @@ input[type="text"] {
     letter-spacing: 2px;
     min-width: 0;
 }
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-bottom: 2px solid #59E79A;
+}
+input[type="text"].red:focus, input[type="number"].red:focus {
+    border-bottom: 2px solid #FE3E46;
+}
 .description-input {
     width: 90%;
+}
+button.add-button {
+    background: none;
+    border: none;
+    outline: none;
+}
+button.add-button:focus {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(209, 221, 240, 0.461);
+}
+button.add-button:active {
+    transform: translateY(2px);
 }
 .cc-color-faded {
     color: rgb(179, 179, 179);
@@ -189,8 +191,16 @@ cursor: pointer;
 }
 .cc-list-item-amt {
     font-size: 1.2rem;
+    letter-spacing: 3px;
     font-style: italic;
     margin: 0;
+}
+.cc-list-item-amt.income{
+    color: rgb(107, 240, 149);
+}
+.cc-list-item-amt.expense{
+    color: rgb(255, 90, 120);
+
 }
 .cc-percent-expense {
     display: inline-block;

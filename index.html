@@ -23,7 +23,7 @@
 
     <!-- Main Content Markup -->
     <div class="container text-center my-3 my-md-5">
-        <h3 class="title-line">Your budget for the <span id="month">month</span></h3>
+        <h3 class="title-line">Your budget for <span id="month">month</span></h3>
         <div id="budget-amount" class="budget-amount">2345.67</div>
         <div class="row my-2">
             <div class="col-6">
@@ -44,10 +44,10 @@
                     <div class="expend-box">
                         <div class="inner-box">
                             <h5>Expense</h5>
-                            <div class="expense-total" id="expense-total">
+                            <div id="expense-total" class="expense-total">
                                 19202.4
                             </div>
-                            <div class="expense-percentage-tag">
+                            <div id="budget-percentage" class="expense-percentage-tag">
                                 45%
                             </div>
                         </div>
@@ -61,16 +61,16 @@
     <!-- Handler to add items to list -->
     <div class="container-fluid handler-container">
         <div class="row no-gutters justify-content-center align-items-center">
-            
+
             <!-- Selector: Expense or Income -->
             <div class=".offset-3 col-6 col-md-2">
                 <div class="row selector-wrapper">
-                    <div class="selector-background">
-                    </div>
-                    <div class=" col-6 col-md-12 income-selector active-selector">
+                    <!-- <div class="selector-background">
+                    </div> -->
+                    <div class="col-6 col-md-12 type-selector income-selector active-selector">
                         <p class="m-0">Income</p>
                     </div>
-                    <div class=" col-6 col-md-12 expense-selector ">
+                    <div class="col-6 col-md-12 type-selector expense-selector">
                         <p class="m-0">Expense</p>
                     </div>
                 </div>
@@ -83,6 +83,7 @@
             </div>
             <!--  -->
 
+            <!-- INPUT FIELDS -->
             <!-- Description Input -->
             <div class="col-12 col-md-4 text-center">
                 <input class="description-input" type="text" name="desc" id="input-desc" placeholder="Description">
@@ -91,9 +92,10 @@
 
             <!-- Amount Input -->
             <div class="col-5 col-md-3">
-                <input class="amount-input" type="text" name="amount" id="input-amt" placeholder="Amount">
+                <input class="amount-input" type="number" name="amount" id="input-amt" placeholder="Amount">
             </div>
             <!--  -->
+
 
             <!-- Divider -->
             <div class="d-none d-md-block col-md-1">
@@ -103,7 +105,9 @@
 
             <!-- Submit Button -->
             <div class="text-center col-md-1 mt-4 mt-md-0">
-                <i class="far fa-check-circle fa-3x income-text" style="cursor: pointer;"></i>
+                <button class="add-button">
+                    <i id="add-btn" class="far fa-check-circle fa-3x add-btn" style="cursor: pointer;"></i>
+                </button>
             </div>
             <!--  -->
         </div>
@@ -114,14 +118,17 @@
             <div><span class="nav-selector active">Income</span></div>&nbsp;&nbsp;
             <div><span class="nav-selector">Expense</span></div>
         </div>
-        <hr color="white" class=" mt-2">
-        <div class="row justify-content-between aling-items-start cc-details-container">
+        <!-- <hr color="white" class=" mt-2"> -->
+        <div class="cc-details-container row justify-content-between aling-items-start">
+            
             <!-- Income Details Section -->
             <div class="col-6 col-md-5">
+                <!-- INCOME Header -->
                 <div class="d-none d-md-block">
                     <h3 class="m-0">Income</h3>
                     <hr class="my-2 mb-4" color="white">
                 </div>
+                <!-- Column Names -->
                 <div class="row justify-content-between">
                     <div class="col-4">
                         <p class="text-uppercase mb-0 cc-color-faded">Description</p>
@@ -132,8 +139,9 @@
                 </div>
                 <hr class="my-0" color="grey">
                 <!-- List Items -->
-                <div class="list-container">
-                    <div class="cc-list-item">
+                <div class="list-container income">
+
+                    <!-- <div class="cc-list-item">
                         <div class="row no-gutters">
                             <div class="col flex-grow-1">
                                 <p class="cc-list-item-desc">Salary</p>
@@ -145,46 +153,8 @@
                                 <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00</p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00</p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00</p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+                    
                 </div>
             </div>
             <!--  -->
@@ -197,10 +167,12 @@
 
             <!-- Expense Detail Section -->
             <div class="col-6 col-md-5">
+                <!-- EXPENSE Header -->
                 <div class="d-none d-md-block">
                     <h3 class="m-0">Expense</h3>
                     <hr class="my-2 mb-4" color="white">
                 </div>
+                <!-- Column Names -->
                 <div class="row justify-content-between">
                     <div class="col-4">
                         <p class="text-uppercase mb-0 cc-color-faded">Description</p>
@@ -210,8 +182,10 @@
                     </div>
                 </div>
                 <hr class="my-0" color="grey">
-                <div class="list-container">
-                    <div class="cc-list-item">
+                <!-- List Items -->
+                <div class="list-container expense">
+
+                    <!-- <div class="cc-list-item">
                         <div class="row no-gutters">
                             <div class="col flex-grow-1">
                                 <p class="cc-list-item-desc">Salary</p>
@@ -223,46 +197,8 @@
                                 <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00 <span class="cc-percent-expense">45%</span></p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00 <span class="cc-percent-expense">45%</span></p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cc-list-item">
-                        <div class="row no-gutters">
-                            <div class="col flex-grow-1">
-                                <p class="cc-list-item-desc">Salary</p>
-                            </div>
-                            <div class="col text-right">
-                                <p class="cc-list-item-amt">64500.00 <span class="cc-percent-expense">45%</span></p>
-                            </div>
-                            <div class="text-right cc-cross-icon">
-                                <i class="fas fa-times-circle" style="vertical-align: bottom;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+
                 </div>
             </div>
             <!--  -->
@@ -284,8 +220,8 @@
                     <h5>Developed by:</h5>
                     <img src="CrimoCraps.svg" alt="">
                 </div>
-                
-                
+
+
             </div>
         </div>
     </footer>
